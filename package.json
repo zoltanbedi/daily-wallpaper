@@ -1,0 +1,40 @@
+{
+  "name": "daily-wallpaper",
+  "version": "0.0.1",
+  "description": "Daily Dozen photos from National Geographic",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc --watch",
+    "test": "npm run mocha --recursive ./src/**/__tests__/*",
+    "mocha": "mocha -r ts-node/register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/B3zo0/daily-wallpaper.git"
+  },
+  "keywords": [
+    "wallpaper",
+    "photos",
+    "background",
+    "image"
+  ],
+  "author": {
+    "name": "Zoltán Bedi",
+    "email": "zoltan.bedi@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/B3zo0/daily-wallpaper/issues"
+  },
+  "homepage": "https://github.com/B3zo0/daily-wallpaper#readme",
+  "devDependencies": {
+    "@types/chai": "^4.1.2",
+    "@types/mocha": "^2.2.48",
+    "@types/node": "^9.4.5",
+    "chai": "^4.1.2",
+    "mocha": "^5.0.0",
+    "ts-node": "^4.1.0",
+    "typescript": "^2.7.1"
+  }
+}
