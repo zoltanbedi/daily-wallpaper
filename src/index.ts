@@ -1,5 +1,5 @@
 import { Person } from './person';
 
-let person = new Person('Bob', 34);
+let person = new Person();
 
-console.log(person.getGreeting());
+person.downloadImages();
