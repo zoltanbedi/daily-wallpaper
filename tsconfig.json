@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es5",
-    "noImplicitAny": false,
-    "outDir": "./dist"
+    "target": "esnext",
+    "strict": true,
+    "outDir": "./dist",
+    "skipLibCheck": true
   },
   "exclude": [
     "node_modules",
