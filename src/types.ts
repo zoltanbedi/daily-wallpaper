@@ -1,4 +1,9 @@
-declare module NationalGeographic {
+export interface Photos {
+  url: string;
+  name: string;
+}
+
+export namespace NationalGeographic {
 
   export interface PhotoSizes {
     '720x0': string;

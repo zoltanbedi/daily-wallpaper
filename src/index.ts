@@ -1,5 +1,3 @@
-import { Person } from './person';
+import { DailyPhotos } from "./daily-photos";
 
-let person = new Person();
-
-person.downloadImages();
+DailyPhotos.downloadImages();
