@@ -1,10 +1,9 @@
-export interface Photos {
+export interface Image {
   url: string;
   name: string;
 }
 
 export namespace NationalGeographic {
-
   export interface PhotoSizes {
     '720x0': string;
     '1080x1080': string;
@@ -64,5 +63,4 @@ export namespace NationalGeographic {
     can_vote: boolean;
     can_see_voting: boolean;
   }
-
 }
