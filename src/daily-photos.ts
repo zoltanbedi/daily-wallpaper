@@ -12,7 +12,7 @@ export async function getDailyPhotos(): Promise<Image[] | undefined> {
     const photos = dailyDozen.photos.filter(p => p.height < p.width).map(p => {
       return {
         url: yourShotUrl + p.photo_sizes['1920x0'],
-        name: slugify(p.title)
+        name: slugify(p.title, { lower: true })
       };
     });
     return photos;
@@ -21,29 +21,29 @@ export async function getDailyPhotos(): Promise<Image[] | undefined> {
   }
 }
 
-export async function downloadImages() {
+export async function downloadImages(pathToSave?: string) {
   const photos = await getDailyPhotos();
   const promises = [];
+  pathToSave = pathToSave || __dirname;
   if (!photos) {
     return console.error('There was an error getting the images');
   }
   for (let i = 0; i < photos.length; i++) {
-    promises.push(saveImages(photos[i]));
+    promises.push(saveImages(photos[i], pathToSave));
   }
   await Promise.all(promises);
   console.log('The photos are downloaded.');
 }
 
-export async function saveImages(image: Image) {
-  // path to save should come from input
-  const pathToSave = path.resolve(__dirname, `${image.name}.jpeg`);
+export async function saveImages(image: Image, pathToSave: string) {
+  const imgPath = path.resolve(pathToSave, `${image.name}.jpeg`);
 
   const response = await axios.get(image.url, { responseType: 'stream' });
-  response.data.pipe(Fs.createWriteStream(pathToSave));
+  response.data.pipe(Fs.createWriteStream(imgPath));
 
   return new Promise((resolve, reject) => {
     response.data.on('end', () => {
-      console.log(`${pathToSave} successfully saved.`);
+      console.log(`${imgPath} successfully saved.`);
       resolve();
     });
 
