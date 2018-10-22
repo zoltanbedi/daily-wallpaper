@@ -9,16 +9,20 @@ export async function getDailyPhotos(): Promise<Image[] | undefined> {
   try {
     const response = await axios.get(`${yourShotUrl}/rpc/daily-dozen/`);
     const dailyDozen = response.data as NationalGeographic.DailyDozen;
-    const photos = dailyDozen.photos.filter(p => p.height < p.width).map(p => {
-      return {
-        url: yourShotUrl + p.photo_sizes['1920x0'],
-        name: slugify(p.title, { lower: true })
-      };
-    });
+    const photos = filterAndMapPhotos(dailyDozen.photos);
     return photos;
   } catch (error) {
-    console.error(error);
+    console.log(error.message);
   }
+}
+
+function filterAndMapPhotos(photos: NationalGeographic.Photo[]): Image[] {
+  return photos.filter(p => p.height < p.width).map(p => {
+    return {
+      url: yourShotUrl + p.photo_sizes['1920x0'],
+      name: slugify(p.title, { lower: true })
+    };
+  });
 }
 
 export async function downloadImages(pathToSave?: string) {

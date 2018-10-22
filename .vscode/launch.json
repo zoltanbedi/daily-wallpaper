@@ -2,14 +2,22 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Current TS Tests File",
+      "name": "Jest test debug",
       "type": "node",
       "request": "launch",
-      "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
-      "args": ["-r", "ts-node/register", "${relativeFile}"],
+      "program": "${workspaceRoot}/node_modules/jest/bin/jest.js",
+      "stopOnEntry": false,
+      "args": [
+        "--runInBand"
+      ],
       "cwd": "${workspaceRoot}",
-      "protocol": "inspector",
-      "internalConsoleOptions": "openOnSessionStart"
+      "preLaunchTask": null,
+      "runtimeExecutable": null,
+      "runtimeArgs": [
+        "--nolazy"
+      ],
+      "console": "integratedTerminal",
+      "sourceMaps": true
     },
     {
       "name": "Current TS File",

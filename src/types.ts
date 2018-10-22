@@ -40,7 +40,7 @@ export namespace NationalGeographic {
     has_favorite: boolean;
     title: string;
     url: string;
-    photo_sizes: PhotoSizes;
+    photo_sizes: Partial<PhotoSizes>;
     hashtags: string[];
     has_editor_notes: number;
     height: number;
