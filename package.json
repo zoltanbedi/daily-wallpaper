@@ -4,8 +4,7 @@
   "description": "Daily Dozen photos from National Geographic",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
-    "start": "tsnode index.ts",
+    "start": "ts-node index.ts",
     "test": "jest"
   },
   "repository": {
@@ -28,17 +27,17 @@
   },
   "homepage": "https://github.com/B3zo0/daily-wallpaper#readme",
   "devDependencies": {
-    "@types/jest": "^23.3.7",
+    "@types/jest": "^23.3.9",
     "@types/meow": "^5.0.0",
-    "@types/node": "^10.12.0",
+    "@types/node": "^10.12.10",
     "jest": "^23.6.0",
-    "ts-jest": "^23.10.4",
+    "ts-jest": "^23.10.5",
     "ts-node": "^7.0.1",
-    "typescript": "^3.1.3"
+    "typescript": "^3.1.6"
   },
   "dependencies": {
     "axios": "^0.18.0",
     "meow": "^5.0.0",
-    "slugify": "^1.3.1"
+    "slugify": "^1.3.3"
   }
 }
